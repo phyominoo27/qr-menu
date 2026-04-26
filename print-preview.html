@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Ready QR</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #0a0a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .card {
+    width: 500px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    border-radius: 32px;
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  /* Decorative elements */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, #E85A2C, #f5af19, #E85A2C, #f12711, #E85A2C);
+    border-radius: 34px;
+    z-index: -1;
+    animation: borderGlow 4s ease-in-out infinite;
+  }
+
+  @keyframes borderGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .corner-dot {
+    position: absolute;
+    width: 12px; height: 12px;
+    background: #E85A2C;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #E85A2C;
+  }
+  .corner-dot.tl { top: 24px; left: 24px; }
+  .corner-dot.tr { top: 24px; right: 24px; }
+  .corner-dot.bl { bottom: 24px; left: 24px; }
+  .corner-dot.br { bottom: 24px; right: 24px; }
+
+  .corner-ring {
+    position: absolute;
+    width: 28px; height: 28px;
+    border: 2px solid rgba(232, 90, 44, 0.3);
+    border-radius: 50%;
+  }
+  .corner-ring.tl { top: 18px; left: 18px; }
+  .corner-ring.tr { top: 18px; right: 18px; }
+  .corner-ring.bl { bottom: 18px; left: 18px; }
+  .corner-ring.br { bottom: 18px; right: 18px; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .brand-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .shop-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E85A2C, transparent);
+    margin: 20px auto;
+  }
+
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+  .qr-wrapper {
+    padding: 20px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    position: relative;
+  }
+
+  .qr-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, #E85A2C, #f5af19);
+    border-radius: 27px;
+    z-index: -1;
+  }
+
+  .qr-wrapper img {
+    display: block;
+    border-radius: 8px;
+  }
+
+  .scan-hint {
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  .scan-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .scan-text strong {
+    color: #E85A2C;
+    font-weight: 600;
+  }
+
+  .footer {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .footer-line {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-url {
+    font-size: 10px;
+    color: rgba(255,255,255,0.15);
+    margin-top: 6px;
+    font-family: monospace;
+  }
+
+  /* Bottom accent */
+  .bottom-accent {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #E85A2C, transparent);
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* Two-column layout for both cards */
+  .cards-row {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .card-single {
+    width: 420px;
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    border-radius: 28px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+
+  .card-single::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #E85A2C, #f5af19, #E85A2C);
+  }
+
+  .card-single .corner-dot { width: 8px; height: 8px; }
+  .card-single .corner-dot.tl { top: 16px; left: 16px; }
+  .card-single .corner-dot.tr { top: 16px; right: 16px; }
+  .card-single .corner-dot.bl { bottom: 16px; left: 16px; }
+  .card-single .corner-dot.br { bottom: 16px; right: 16px; }
+
+  .card-single .corner-ring { display: none; }
+
+  .card-single .shop-name { font-size: 28px; }
+  .card-single .brand-icon { font-size: 36px; margin-bottom: 8px; }
+  .card-single .qr-wrapper { padding: 14px; }
+  .card-single .qr-wrapper img { width: 200px; height: 200px; }
+</style>
+</head>
+<body>
+
+<div class="cards-row">
+
+  <!-- Cafe Aurora -->
+  <div class="card-single">
+    <div class="corner-dot tl"></div>
+    <div class="corner-dot tr"></div>
+    <div class="corner-dot bl"></div>
+    <div class="corner-dot br"></div>
+
+    <div class="header">
+      <div class="brand-icon">☕</div>
+      <h1 class="shop-name">Cafe Aurora</h1>
+      <div class="divider"></div>
+    </div>
+
+    <div class="qr-container">
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&format=png&margin=10&data=https://qr-menu-opal.vercel.app/?shop=cafe-aurora" alt="QR Code" width="200" height="200">
+      </div>
+    </div>
+
+    <div class="scan-hint">
+      <p class="scan-text"><strong>Scan to view menu</strong></p>
+    </div>
+
+    <div class="footer">
+      <p class="footer-line">QR Menu</p>
+    </div>
+  </div>
+
+  <!-- Velvet Bar -->
+  <div class="card-single">
+    <div class="corner-dot tl"></div>
+    <div class="corner-dot tr"></div>
+    <div class="corner-dot bl"></div>
+    <div class="corner-dot br"></div>
+
+    <div class="header">
+      <div class="brand-icon">🥃</div>
+      <h1 class="shop-name">Velvet Bar</h1>
+      <div class="divider"></div>
+    </div>
+
+    <div class="qr-container">
+      <div class="qr-wrapper">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&format=png&margin=10&data=https://qr-menu-opal.vercel.app/?shop=velvet-bar" alt="QR Code" width="200" height="200">
+      </div>
+    </div>
+
+    <div class="scan-hint">
+      <p class="scan-text"><strong>Scan to view menu</strong></p>
+    </div>
+
+    <div class="footer">
+      <p class="footer-line">QR Menu</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

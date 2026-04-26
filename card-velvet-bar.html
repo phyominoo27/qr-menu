@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Card - Velvet Bar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #0a0a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .card {
+    width: 420px;
+    background: linear-gradient(160deg, #1e1e3f 0%, #1a1a2e 40%, #16213e 60%, #1a1a2e 100%);
+    border-radius: 28px;
+    padding: 44px 36px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(255,255,255,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  /* Top gradient bar - different color for bar */
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8b5cf6, #a78bfa, #8b5cf6);
+    border-radius: 28px 28px 0 0;
+  }
+
+  /* Corner accent rings */
+  .corner { position: absolute; width: 32px; height: 32px; }
+  .corner::before {
+    content: '';
+    position: absolute;
+    width: 8px; height: 8px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #8b5cf6;
+  }
+  .corner::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 1.5px solid rgba(139,92,246,0.3);
+    border-radius: 50%;
+  }
+  .corner.tl { top: 20px; left: 20px; }
+  .corner.tl::before { top: 0; left: 0; }
+  .corner.tl::after { top: -4px; left: -4px; }
+  .corner.tr { top: 20px; right: 20px; }
+  .corner.tr::before { top: 0; right: 0; }
+  .corner.tr::after { top: -4px; right: -4px; }
+  .corner.bl { bottom: 20px; left: 20px; }
+  .corner.bl::before { bottom: 0; left: 0; }
+  .corner.bl::after { bottom: -4px; left: -4px; }
+  .corner.br { bottom: 20px; right: 20px; }
+  .corner.br::before { bottom: 0; right: 0; }
+  .corner.br::after { bottom: -4px; right: -4px; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    margin-top: 8px;
+  }
+
+  .brand-icon {
+    font-size: 52px;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 4px 12px rgba(139,92,246,0.3));
+  }
+
+  .shop-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    margin: 18px auto;
+  }
+
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0;
+  }
+
+  .qr-frame {
+    position: relative;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow:
+      0 12px 40px rgba(0,0,0,0.3),
+      0 0 0 3px #8b5cf6,
+      0 0 0 5px rgba(139,92,246,0.2);
+  }
+
+  .qr-frame img {
+    display: block;
+    border-radius: 4px;
+  }
+
+  .scan-hint {
+    text-align: center;
+    margin-top: 28px;
+  }
+
+  .scan-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .scan-text strong {
+    color: #8b5cf6;
+    font-weight: 600;
+  }
+
+  .footer {
+    margin-top: 28px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-text {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .bottom-accent {
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+    border-radius: 0 0 28px 28px;
+  }
+</style>
+</head>
+<body>
+
+<!-- CARD 2: Velvet Bar -->
+<div class="card">
+  <div class="top-bar"></div>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="header">
+    <div class="brand-icon">🥃</div>
+    <h1 class="shop-name">Velvet Bar</h1>
+    <div class="divider"></div>
+    <p class="tagline">Craft Cocktails & Fine Spirits</p>
+  </div>
+
+  <div class="qr-container">
+    <div class="qr-frame">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&format=png&margin=0&data=https://qr-menu-opal.vercel.app/?shop=velvet-bar" alt="QR" width="220" height="220">
+    </div>
+  </div>
+
+  <div class="scan-hint">
+    <p class="scan-text"><strong>Scan</strong> to explore our menu</p>
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">QR Menu &bull; 2025</p>
+  </div>
+
+  <div class="bottom-accent"></div>
+</div>
+
+</body>
+</html>

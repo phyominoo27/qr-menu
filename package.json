@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "googleapis": "^171.4.0",
+    "jimp": "^1.6.1",
     "node-fetch": "^3.3.2",
     "xlsx": "^0.18.5"
   }
