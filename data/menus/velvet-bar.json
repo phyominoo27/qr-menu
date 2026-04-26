@@ -1,10 +1,10 @@
 {
   "shop_id": "velvet-bar",
   "shop_name": "Velvet Bar",
-  "generated_at": "2026-04-26T13:20:09.312Z",
+  "generated_at": "2026-04-26T13:42:10.511Z",
   "config": {
     "shop_name": "Velvet Bar",
-    "template": "with-images",
+    "template": "without-images",
     "theme_bg": "#FFFFFF",
     "theme_accent": "#E85A2C",
     "theme_text": "#1A1A1A",
@@ -14,5 +14,222 @@
     "currency": "K",
     "currency_position": "after"
   },
-  "items": []
+  "items": [
+    {
+      "id": "1",
+      "name": "Johnnie Walker Black Label",
+      "description": "12-year blended Scotch whisky",
+      "price": 12,
+      "image": "",
+      "category": "Whiskies",
+      "available": true
+    },
+    {
+      "id": "2",
+      "name": "Glenfiddich 15 Year",
+      "description": "Single malt Scotch, rich fruit and oak",
+      "price": 18,
+      "image": "",
+      "category": "Whiskies",
+      "available": true
+    },
+    {
+      "id": "3",
+      "name": "Jameson Irish Whiskey",
+      "description": "Triple-distilled Irish whiskey",
+      "price": 9,
+      "image": "",
+      "category": "Whiskies",
+      "available": true
+    },
+    {
+      "id": "4",
+      "name": "Maker's Mark Bourbon",
+      "description": "Kentucky straight bourbon whiskey",
+      "price": 11,
+      "image": "",
+      "category": "Whiskies",
+      "available": true
+    },
+    {
+      "id": "5",
+      "name": "Woodford Reserve",
+      "description": "Artisan bourbon with complex flavor",
+      "price": 14,
+      "image": "",
+      "category": "Whiskies",
+      "available": true
+    },
+    {
+      "id": "6",
+      "name": "Velvet Martini",
+      "description": "Vodka, white crème de cacao, cream",
+      "price": 15,
+      "image": "",
+      "category": "Cocktails",
+      "available": true
+    },
+    {
+      "id": "7",
+      "name": "Old Fashioned",
+      "description": "Bourbon, bitters, sugar, orange zest",
+      "price": 14,
+      "image": "",
+      "category": "Cocktails",
+      "available": true
+    },
+    {
+      "id": "8",
+      "name": "Espresso Martini",
+      "description": "Vodka, fresh espresso, coffee liqueur",
+      "price": 15,
+      "image": "",
+      "category": "Cocktails",
+      "available": true
+    },
+    {
+      "id": "9",
+      "name": "Mojito",
+      "description": "White rum, mint, lime, sugar, soda",
+      "price": 12,
+      "image": "",
+      "category": "Cocktails",
+      "available": true
+    },
+    {
+      "id": "10",
+      "name": "Negroni",
+      "description": "Gin, Campari, sweet vermouth",
+      "price": 13,
+      "image": "",
+      "category": "Cocktails",
+      "available": true
+    },
+    {
+      "id": "11",
+      "name": "Tanqueray London Dry",
+      "description": "Classic dry gin with juniper",
+      "price": 10,
+      "image": "",
+      "category": "Gins",
+      "available": true
+    },
+    {
+      "id": "12",
+      "name": "Hendrick's Gin",
+      "description": "Scottish gin with cucumber & rose",
+      "price": 12,
+      "image": "",
+      "category": "Gins",
+      "available": true
+    },
+    {
+      "id": "13",
+      "name": "Bombay Sapphire",
+      "description": "Aromatic gin with 10 botanicals",
+      "price": 10,
+      "image": "",
+      "category": "Gins",
+      "available": true
+    },
+    {
+      "id": "14",
+      "name": "Monkey 47",
+      "description": "Craft gin from the Black Forest",
+      "price": 16,
+      "image": "",
+      "category": "Gins",
+      "available": true
+    },
+    {
+      "id": "15",
+      "name": "Patrón Silver",
+      "description": "100% agave silver tequila",
+      "price": 12,
+      "image": "",
+      "category": "Tequilas",
+      "available": true
+    },
+    {
+      "id": "16",
+      "name": "Don Julio Anejo",
+      "description": "Aged 18 months, rich and smooth",
+      "price": 16,
+      "image": "",
+      "category": "Tequilas",
+      "available": true
+    },
+    {
+      "id": "17",
+      "name": "Virgin Mojito",
+      "description": "Mint, lime, sugar, soda — no alcohol",
+      "price": 7,
+      "image": "",
+      "category": "Mocktails",
+      "available": true
+    },
+    {
+      "id": "18",
+      "name": "No-Tini",
+      "description": "Seedlip Grove, citrus, tonic",
+      "price": 8,
+      "image": "",
+      "category": "Mocktails",
+      "available": true
+    },
+    {
+      "id": "19",
+      "name": "Cabernet Sauvignon",
+      "description": "Full-bodied red wine",
+      "price": 10,
+      "image": "",
+      "category": "Wines",
+      "available": true
+    },
+    {
+      "id": "20",
+      "name": "Chardonnay",
+      "description": "Dry white wine",
+      "price": 9,
+      "image": "",
+      "category": "Wines",
+      "available": true
+    },
+    {
+      "id": "21",
+      "name": "Prosecco",
+      "description": "Italian sparkling wine",
+      "price": 8,
+      "image": "",
+      "category": "Wines",
+      "available": true
+    },
+    {
+      "id": "22",
+      "name": "Heineken Lager",
+      "description": "Dutch pale lager beer",
+      "price": 7,
+      "image": "",
+      "category": "Beers",
+      "available": true
+    },
+    {
+      "id": "23",
+      "name": "IPA Craft Beer",
+      "description": "India pale ale with citrus notes",
+      "price": 9,
+      "image": "",
+      "category": "Beers",
+      "available": true
+    },
+    {
+      "id": "24",
+      "name": "Corona Extra",
+      "description": "Mexican pale lager",
+      "price": 7,
+      "image": "",
+      "category": "Beers",
+      "available": true
+    }
+  ]
 }

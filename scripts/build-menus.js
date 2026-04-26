@@ -31,27 +31,52 @@ async function fetchSheetCSV(url) {
 
 /**
  * Parse shop data from sheet rows
- * Handles mixed row types: config rows and item rows have different structures
+ * Handles two formats:
+ * - Old: type,name,description,price,image,category (type=config|item)
+ * - New: category,name,description,price,image (with header row)
  */
 function parseShopData(rows) {
     const config = { tagline: '' };
     const items = [];
 
+    if (rows.length === 0) return { config, items };
+
+    // Detect format by checking first row (header or old format)
+    const firstRow = rows[0];
+    const firstCell = (firstRow[0] || '').toLowerCase().trim();
+
+    // NEW FORMAT: has "category" as first column header
+    if (firstCell === 'category') {
+        // rows[0] is header, rows[1..] are data
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            const name = row[1] || '';
+            if (!name) continue;
+            items.push({
+                id: String(items.length + 1),
+                name: name,
+                description: row[2] || '',
+                price: parseFloat(row[3]) || 0,
+                image: row[4] || '',
+                category: row[0] || 'Other',
+                available: true
+            });
+        }
+        return { config, items };
+    }
+
+    // OLD FORMAT: type=config|item
     for (const row of rows) {
-        // Get the first cell to determine row type
         const firstCell = (row[0] || '').toLowerCase().trim();
 
         if (firstCell === 'config') {
-            // Config row: type,key,value,...
             const key = (row[1] || '').toLowerCase().trim();
             const value = row[2] || '';
             if (key) config[key] = value;
         }
         else if (firstCell === 'item') {
-            // Item row: type,name,description,price,image,category
             const name = row[1] || '';
             if (!name) continue;
-            
             items.push({
                 id: String(items.length + 1),
                 name: name,
@@ -91,9 +116,10 @@ async function build() {
             const { config, items } = parseShopData(rows);
 
             // Merge sheet config with shop defaults
+            // Template: prefer sheet config, fallback to shops.json, fallback to default
             const shopConfig = {
                 shop_name: shop.name,
-                template: 'with-images',
+                template: config.template || shop.template || 'with-images',
                 theme_bg: '#FFFFFF',
                 theme_accent: '#E85A2C',
                 theme_text: '#1A1A1A',
