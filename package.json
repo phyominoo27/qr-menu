@@ -1,6 +1,7 @@
 {
   "name": "qr-menu",
   "version": "1.0.0",
+  "type": "module",
   "description": "Multi-tenant QR Code Menu system powered by Google Sheets",
   "scripts": {
     "build": "node scripts/build-menus.js",
