@@ -9,7 +9,13 @@
     "preview": "npx serve . -l 3000",
     "dev": "npx serve . -l 3000"
   },
-  "keywords": ["qr-menu", "google-sheets", "multi-tenant", "restaurant-menu", "static-site"],
+  "keywords": [
+    "qr-menu",
+    "google-sheets",
+    "multi-tenant",
+    "restaurant-menu",
+    "static-site"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
@@ -18,6 +24,7 @@
     "papaparse": "^5.4.1"
   },
   "devDependencies": {
+    "googleapis": "^171.4.0",
     "node-fetch": "^3.3.2"
   }
 }
