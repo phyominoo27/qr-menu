@@ -30,6 +30,18 @@ async function fetchSheetCSV(url) {
 }
 
 /**
+ * Sanitize a string by stripping all HTML tags and dangerous characters.
+ * Used at build time to prevent XSS injection via Google Sheet data.
+ * @param {string} str
+ * @returns {string}
+ */
+function sanitizeText(str) {
+    if (!str || typeof str !== 'string') return '';
+    // Strip HTML tags and trim
+    return str.replace(/<[^>]*>/g, '').trim();
+}
+
+/**
  * Parse shop data from sheet rows
  * Handles two formats:
  * - Old: type,name,description,price,image,category (type=config|item)
@@ -50,15 +62,15 @@ function parseShopData(rows) {
         // rows[0] is header, rows[1..] are data
         for (let i = 1; i < rows.length; i++) {
             const row = rows[i];
-            const name = row[1] || '';
+            const name = sanitizeText(row[1] || '');
             if (!name) continue;
             items.push({
                 id: String(items.length + 1),
                 name: name,
-                description: row[2] || '',
+                description: sanitizeText(row[2] || ''),
                 price: parseFloat(row[3]) || 0,
-                image: row[4] || '',
-                category: row[0] || 'Other',
+                image: sanitizeText(row[4] || ''),
+                category: sanitizeText(row[0] || 'Other'),
                 available: true
             });
         }
@@ -71,19 +83,19 @@ function parseShopData(rows) {
 
         if (firstCell === 'config') {
             const key = (row[1] || '').toLowerCase().trim();
-            const value = row[2] || '';
+            const value = sanitizeText(row[2] || '');
             if (key) config[key] = value;
         }
         else if (firstCell === 'item') {
-            const name = row[1] || '';
+            const name = sanitizeText(row[1] || '');
             if (!name) continue;
             items.push({
                 id: String(items.length + 1),
                 name: name,
-                description: row[2] || '',
+                description: sanitizeText(row[2] || ''),
                 price: parseFloat(row[3]) || 0,
-                image: row[4] || '',
-                category: row[5] || 'Other',
+                image: sanitizeText(row[4] || ''),
+                category: sanitizeText(row[5] || 'Other'),
                 available: true
             });
         }
