@@ -1,38 +1,154 @@
 {
   "shop_id": "cafe-aurora",
   "shop_name": "Cafe Aurora",
-  "generated_at": "2026-04-25T12:00:00.000Z",
+  "generated_at": "2026-04-26T13:20:08.444Z",
   "config": {
     "shop_name": "Cafe Aurora",
     "template": "with-images",
-    "theme_bg": "#FDF8F3",
-    "theme_accent": "#D4A574",
-    "theme_text": "#3D3D3D",
-    "theme_header": "#5C3D2E",
+    "theme_bg": "#FAFAFA",
+    "theme_accent": "#E85A2C",
+    "theme_text": "#2D2D2D",
+    "theme_header": "#1A1A1A",
     "theme_header_text": "#FFFFFF",
+    "tagline": "Premium coffee & brunch",
     "currency": "K",
-    "currency_position": "after",
-    "tagline": "Good coffee, great vibes",
-    "logo_url": ""
+    "currency_position": "after"
   },
   "items": [
-    { "id": "1", "name": "Tonkotsu Ramen", "description": "Rich pork broth with chashu, soft-boiled egg, bamboo shoots", "price": 14000, "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", "category": "Ramen", "available": true },
-    { "id": "2", "name": "Miso Ramen", "description": "Fermented soybean paste broth with corn and butter", "price": 13000, "image": "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=400&q=80", "category": "Ramen", "available": true },
-    { "id": "3", "name": "Shoyu Ramen", "description": "Classic soy sauce based clear broth with nori", "price": 12000, "image": "", "category": "Ramen", "available": true },
-    { "id": "4", "name": "Gyoza (6pcs)", "description": "Pan-fried pork dumplings with crispy bottoms", "price": 8500, "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=80", "category": "Sides", "available": true },
-    { "id": "5", "name": "Edamame", "description": "Steamed soybeans with sea salt", "price": 4500, "image": "", "category": "Sides", "available": true },
-    { "id": "6", "name": "Cheesecake", "description": "New York style baked cheesecake with berry compote", "price": 7500, "image": "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&q=80", "category": "Dessert", "available": true },
-    { "id": "7", "name": "Tiramisu", "description": "Coffee-soaked ladyfingers with mascarpone cream", "price": 8000, "image": "", "category": "Dessert", "available": true },
-    { "id": "8", "name": "Ice Cream (2 scoops)", "description": "Vanilla, chocolate, or matcha", "price": 5000, "image": "", "category": "Dessert", "available": true },
-    { "id": "9", "name": "Cappuccino", "description": "Espresso with steamed milk foam", "price": 3500, "image": "", "category": "Coffee", "available": true },
-    { "id": "10", "name": "Latte", "description": "Espresso with steamed milk", "price": 4000, "image": "", "category": "Coffee", "available": true },
-    { "id": "11", "name": "Iced Americano", "description": "Espresso shots with cold water over ice", "price": 3000, "image": "", "category": "Coffee", "available": true },
-    { "id": "12", "name": "Espresso", "description": "Single shot of pure espresso", "price": 2500, "image": "", "category": "Coffee", "available": true },
-    { "id": "13", "name": "Coca Cola", "description": "Classic refreshing cola", "price": 2000, "image": "", "category": "Drinks", "available": true },
-    { "id": "14", "name": "Orange Juice", "description": "Freshly squeezed orange juice", "price": 4000, "image": "", "category": "Drinks", "available": true },
-    { "id": "15", "name": "Sparkling Water", "description": "Refreshing sparkling mineral water", "price": 2000, "image": "", "category": "Drinks", "available": true },
-    { "id": "16", "name": "Green Tea", "description": "Japanese green tea leaves, hot or iced", "price": 2500, "image": "", "category": "Drinks", "available": true },
-    { "id": "17", "name": "Chicken Katsu Curry", "description": "Deep-fried chicken cutlet with curry sauce and rice", "price": 11000, "image": "", "category": "Rice", "available": true },
-    { "id": "18", "name": "Teriyaki Chicken Rice", "description": "Grilled chicken with teriyaki glaze over rice", "price": 10000, "image": "", "category": "Rice", "available": true }
+    {
+      "id": "1",
+      "name": "Espresso",
+      "description": "Rich and bold single shot espresso",
+      "price": 2500,
+      "image": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400",
+      "category": "Coffee",
+      "available": true
+    },
+    {
+      "id": "2",
+      "name": "Cappuccino",
+      "description": "Espresso with steamed milk and foam",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
+      "category": "Coffee",
+      "available": true
+    },
+    {
+      "id": "3",
+      "name": "Latte",
+      "description": "Smooth espresso with velvety steamed milk",
+      "price": 3800,
+      "image": "https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=400",
+      "category": "Coffee",
+      "available": true
+    },
+    {
+      "id": "4",
+      "name": "Americano",
+      "description": "Espresso diluted with hot water",
+      "price": 2800,
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400",
+      "category": "Coffee",
+      "available": true
+    },
+    {
+      "id": "5",
+      "name": "Mocha",
+      "description": "Chocolate espresso with steamed milk",
+      "price": 4000,
+      "image": "https://images.unsplash.com/photo-1578314675249-a6910f80cc87?w=400",
+      "category": "Coffee",
+      "available": true
+    },
+    {
+      "id": "6",
+      "name": "Matcha Latte",
+      "description": "Japanese green tea with steamed milk",
+      "price": 4500,
+      "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400",
+      "category": "Specialty Drinks",
+      "available": true
+    },
+    {
+      "id": "7",
+      "name": "Cold Brew",
+      "description": "Slow-steeped for 12 hours",
+      "price": 4000,
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400",
+      "category": "Cold Drinks",
+      "available": true
+    },
+    {
+      "id": "8",
+      "name": "Avocado Toast",
+      "description": "Smashed avocado on sourdough with cherry tomatoes",
+      "price": 6500,
+      "image": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400",
+      "category": "Brunch",
+      "available": true
+    },
+    {
+      "id": "9",
+      "name": "Eggs Benedict",
+      "description": "Poached eggs with hollandaise on English muffin",
+      "price": 8500,
+      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=400",
+      "category": "Brunch",
+      "available": true
+    },
+    {
+      "id": "10",
+      "name": "Croissant Sandwich",
+      "description": "Buttery croissant with ham and gruyere",
+      "price": 7500,
+      "image": "https://images.unsplash.com/photo-1623334044303-241021148842?w=400",
+      "category": "Brunch",
+      "available": true
+    },
+    {
+      "id": "11",
+      "name": "Caesar Salad",
+      "description": "Romaine, parmesan, croutons, caesar dressing",
+      "price": 6000,
+      "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=400",
+      "category": "Salads",
+      "available": true
+    },
+    {
+      "id": "12",
+      "name": "Greek Salad",
+      "description": "Feta, olives, cucumber, tomatoes, onions",
+      "price": 6500,
+      "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400",
+      "category": "Salads",
+      "available": true
+    },
+    {
+      "id": "13",
+      "name": "Tiramisu",
+      "description": "Classic Italian coffee-flavored dessert",
+      "price": 5500,
+      "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400",
+      "category": "Desserts",
+      "available": true
+    },
+    {
+      "id": "14",
+      "name": "Chocolate Cake",
+      "description": "Rich dark chocolate layer cake",
+      "price": 5000,
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400",
+      "category": "Desserts",
+      "available": true
+    },
+    {
+      "id": "15",
+      "name": "Cheesecake",
+      "description": "New York style creamy cheesecake",
+      "price": 5500,
+      "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400",
+      "category": "Desserts",
+      "available": true
+    }
   ]
 }

@@ -18,40 +18,48 @@ const SHOPS_FILE = path.join(__dirname, '..', 'data', 'shops.json');
 
 /**
  * Fetch and parse Google Sheet CSV
+ * Uses raw parsing to handle mixed header structures
  */
 async function fetchSheetCSV(url) {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const csv = await response.text();
-    const { data } = Papa.parse(csv, { header: true, skipEmptyLines: true });
+    // Parse without headers — we'll handle column mapping ourselves
+    const { data } = Papa.parse(csv, { header: false, skipEmptyLines: true });
     return data;
 }
 
 /**
  * Parse shop data from sheet rows
+ * Handles mixed row types: config rows and item rows have different structures
  */
 function parseShopData(rows) {
     const config = { tagline: '' };
     const items = [];
 
     for (const row of rows) {
-        const type = (row['type'] || '').toLowerCase().trim();
-        
-        if (type === 'config') {
-            const key = (row['key'] || '').toLowerCase().trim();
-            const value = row['value'] || '';
-            config[key] = value;
-        } 
-        else if (type === 'item') {
-            if (!row['name'] && !row['item']) continue;
+        // Get the first cell to determine row type
+        const firstCell = (row[0] || '').toLowerCase().trim();
+
+        if (firstCell === 'config') {
+            // Config row: type,key,value,...
+            const key = (row[1] || '').toLowerCase().trim();
+            const value = row[2] || '';
+            if (key) config[key] = value;
+        }
+        else if (firstCell === 'item') {
+            // Item row: type,name,description,price,image,category
+            const name = row[1] || '';
+            if (!name) continue;
+            
             items.push({
-                id: row['id'] || row['item'] || '',
-                name: row['name'] || row['item'] || '',
-                description: row['description'] || '',
-                price: parseFloat(row['price']) || 0,
-                image: row['image'] || '',
-                category: row['category'] || 'Other',
-                available: row['available'] !== 'false'
+                id: String(items.length + 1),
+                name: name,
+                description: row[2] || '',
+                price: parseFloat(row[3]) || 0,
+                image: row[4] || '',
+                category: row[5] || 'Other',
+                available: true
             });
         }
     }
