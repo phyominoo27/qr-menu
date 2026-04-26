@@ -1,0 +1,38 @@
+{
+  "shop_id": "cafe-aurora",
+  "shop_name": "Cafe Aurora",
+  "generated_at": "2026-04-25T12:00:00.000Z",
+  "config": {
+    "shop_name": "Cafe Aurora",
+    "template": "with-images",
+    "theme_bg": "#FDF8F3",
+    "theme_accent": "#D4A574",
+    "theme_text": "#3D3D3D",
+    "theme_header": "#5C3D2E",
+    "theme_header_text": "#FFFFFF",
+    "currency": "K",
+    "currency_position": "after",
+    "tagline": "Good coffee, great vibes",
+    "logo_url": ""
+  },
+  "items": [
+    { "id": "1", "name": "Tonkotsu Ramen", "description": "Rich pork broth with chashu, soft-boiled egg, bamboo shoots", "price": 14000, "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80", "category": "Ramen", "available": true },
+    { "id": "2", "name": "Miso Ramen", "description": "Fermented soybean paste broth with corn and butter", "price": 13000, "image": "https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=400&q=80", "category": "Ramen", "available": true },
+    { "id": "3", "name": "Shoyu Ramen", "description": "Classic soy sauce based clear broth with nori", "price": 12000, "image": "", "category": "Ramen", "available": true },
+    { "id": "4", "name": "Gyoza (6pcs)", "description": "Pan-fried pork dumplings with crispy bottoms", "price": 8500, "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&q=80", "category": "Sides", "available": true },
+    { "id": "5", "name": "Edamame", "description": "Steamed soybeans with sea salt", "price": 4500, "image": "", "category": "Sides", "available": true },
+    { "id": "6", "name": "Cheesecake", "description": "New York style baked cheesecake with berry compote", "price": 7500, "image": "https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&q=80", "category": "Dessert", "available": true },
+    { "id": "7", "name": "Tiramisu", "description": "Coffee-soaked ladyfingers with mascarpone cream", "price": 8000, "image": "", "category": "Dessert", "available": true },
+    { "id": "8", "name": "Ice Cream (2 scoops)", "description": "Vanilla, chocolate, or matcha", "price": 5000, "image": "", "category": "Dessert", "available": true },
+    { "id": "9", "name": "Cappuccino", "description": "Espresso with steamed milk foam", "price": 3500, "image": "", "category": "Coffee", "available": true },
+    { "id": "10", "name": "Latte", "description": "Espresso with steamed milk", "price": 4000, "image": "", "category": "Coffee", "available": true },
+    { "id": "11", "name": "Iced Americano", "description": "Espresso shots with cold water over ice", "price": 3000, "image": "", "category": "Coffee", "available": true },
+    { "id": "12", "name": "Espresso", "description": "Single shot of pure espresso", "price": 2500, "image": "", "category": "Coffee", "available": true },
+    { "id": "13", "name": "Coca Cola", "description": "Classic refreshing cola", "price": 2000, "image": "", "category": "Drinks", "available": true },
+    { "id": "14", "name": "Orange Juice", "description": "Freshly squeezed orange juice", "price": 4000, "image": "", "category": "Drinks", "available": true },
+    { "id": "15", "name": "Sparkling Water", "description": "Refreshing sparkling mineral water", "price": 2000, "image": "", "category": "Drinks", "available": true },
+    { "id": "16", "name": "Green Tea", "description": "Japanese green tea leaves, hot or iced", "price": 2500, "image": "", "category": "Drinks", "available": true },
+    { "id": "17", "name": "Chicken Katsu Curry", "description": "Deep-fried chicken cutlet with curry sauce and rice", "price": 11000, "image": "", "category": "Rice", "available": true },
+    { "id": "18", "name": "Teriyaki Chicken Rice", "description": "Grilled chicken with teriyaki glaze over rice", "price": 10000, "image": "", "category": "Rice", "available": true }
+  ]
+}

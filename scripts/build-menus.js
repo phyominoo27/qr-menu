@@ -1,0 +1,131 @@
+#!/usr/bin/env node
+/**
+ * QR Menu — Build Script
+ * Fetches Google Sheets CSV → Parses → Generates static JSON per shop
+ * 
+ * Usage: node scripts/build-menus.js
+ */
+
+import fetch from 'node-fetch';
+import Papa from 'papaparse';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = path.join(__dirname, '..', 'data', 'menus');
+const SHOPS_FILE = path.join(__dirname, '..', 'data', 'shops.json');
+
+/**
+ * Fetch and parse Google Sheet CSV
+ */
+async function fetchSheetCSV(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const csv = await response.text();
+    const { data } = Papa.parse(csv, { header: true, skipEmptyLines: true });
+    return data;
+}
+
+/**
+ * Parse shop data from sheet rows
+ */
+function parseShopData(rows) {
+    const config = { tagline: '' };
+    const items = [];
+
+    for (const row of rows) {
+        const type = (row['type'] || '').toLowerCase().trim();
+        
+        if (type === 'config') {
+            const key = (row['key'] || '').toLowerCase().trim();
+            const value = row['value'] || '';
+            config[key] = value;
+        } 
+        else if (type === 'item') {
+            if (!row['name'] && !row['item']) continue;
+            items.push({
+                id: row['id'] || row['item'] || '',
+                name: row['name'] || row['item'] || '',
+                description: row['description'] || '',
+                price: parseFloat(row['price']) || 0,
+                image: row['image'] || '',
+                category: row['category'] || 'Other',
+                available: row['available'] !== 'false'
+            });
+        }
+    }
+
+    return { config, items };
+}
+
+/**
+ * Main build function
+ */
+async function build() {
+    console.log('🔨 QR Menu Build Script');
+    console.log('======================\n');
+
+    // Ensure output directory exists
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+
+    // Load shops list
+    const shopsData = JSON.parse(fs.readFileSync(SHOPS_FILE, 'utf-8'));
+    console.log(`📋 Found ${shopsData.length} shop(s) to build\n`);
+
+    const results = [];
+
+    for (const shop of shopsData) {
+        console.log(`📦 Building: ${shop.name} (${shop.id})`);
+        
+        try {
+            const rows = await fetchSheetCSV(shop.sheet_url);
+            const { config, items } = parseShopData(rows);
+
+            // Merge sheet config with shop defaults
+            const shopConfig = {
+                shop_name: shop.name,
+                template: 'with-images',
+                theme_bg: '#FFFFFF',
+                theme_accent: '#E85A2C',
+                theme_text: '#1A1A1A',
+                theme_header: '#1A1A1A',
+                theme_header_text: '#FFFFFF',
+                tagline: '',
+                currency: 'K',
+                currency_position: 'after',
+                ...config
+            };
+
+            const output = {
+                shop_id: shop.id,
+                shop_name: shop.name,
+                generated_at: new Date().toISOString(),
+                config: shopConfig,
+                items
+            };
+
+            const outputPath = path.join(DATA_DIR, `${shop.id}.json`);
+            fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+            
+            console.log(`   ✅ ${items.length} items, template: ${shopConfig.template}`);
+            results.push({ id: shop.id, name: shop.name, status: 'success', items: items.length });
+        } catch (err) {
+            console.log(`   ❌ Error: ${err.message}`);
+            results.push({ id: shop.id, name: shop.name, status: 'error', error: err.message });
+        }
+    }
+
+    console.log('\n======================');
+    console.log('📊 Build Report:');
+    results.forEach(r => {
+        const icon = r.status === 'success' ? '✅' : '❌';
+        const detail = r.status === 'success' ? `${r.items} items` : r.error;
+        console.log(`   ${icon} ${r.name}: ${detail}`);
+    });
+    
+    const success = results.filter(r => r.status === 'success').length;
+    console.log(`\n🎉 ${success}/${results.length} shops built successfully!`);
+}
+
+build().catch(console.error);

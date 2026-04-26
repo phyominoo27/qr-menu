@@ -1,0 +1,22 @@
+{
+  "name": "qr-menu",
+  "version": "1.0.0",
+  "description": "Multi-tenant QR Code Menu system powered by Google Sheets",
+  "scripts": {
+    "build": "node scripts/build-menus.js",
+    "build:menus": "node scripts/build-menus.js",
+    "preview": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": ["qr-menu", "google-sheets", "multi-tenant", "restaurant-menu", "static-site"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

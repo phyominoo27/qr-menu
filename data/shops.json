@@ -1,0 +1,12 @@
+[
+  {
+    "id": "cafe-aurora",
+    "name": "Cafe Aurora",
+    "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/export?format=csv"
+  },
+  {
+    "id": "velvet-bar",
+    "name": "Velvet Bar",
+    "sheet_url": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/export?format=csv"
+  }
+]
