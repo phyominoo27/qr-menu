@@ -93,7 +93,7 @@ export function renderHeader(config) {
     };
 
     const logoHtml = config.logo_url
-        ? `<img src="${escapeHtml(config.logo_url)}" alt="${escapeHtml(config.shop_name)}" class="menu-header__logo" onerror="this.style.display='none'">`
+        ? `<img src="${escapeHtml(config.logo_url)}" alt="${escapeHtml(config.shop_name)}" class="menu-header__logo" loading="lazy" onerror="this.style.display='none'">`
         : `<div class="menu-header__logo menu-header__logo--placeholder">
             <span class="logo-initials">${getInitials(config.shop_name)}</span>
         </div>`;
