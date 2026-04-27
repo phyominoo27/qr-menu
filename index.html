@@ -11,6 +11,14 @@
     <!-- Self-hosted Fonts (Outfit + Cormorant Garamond + Padauk) -->
     <link rel="stylesheet" href="fonts/fonts.css">
 
+    <!-- Preload critical fonts to avoid render-blocking -->
+    <link rel="preload" as="font" href="fonts/outfit-400.ttf" type="font/ttf" crossorigin>
+    <link rel="preload" as="font" href="fonts/cormorant-400.ttf" type="font/ttf" crossorigin>
+    <link rel="preload" as="font" href="fonts/padauk-400.ttf" type="font/ttf" crossorigin>
+
+    <!-- Preload critical JS (high priority to start parsing/app init sooner) -->
+    <link rel="preload" as="script" href="js/app.js" fetchpriority="high">
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
 
