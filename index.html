@@ -8,39 +8,11 @@
 
     <title>QR Menu</title>
 
-    <!-- Preconnect for faster resource loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <!-- Self-hosted Fonts (Outfit + Cormorant Garamond + Padauk) -->
+    <link rel="stylesheet" href="fonts/fonts.css">
 
-    <!-- Google Fonts: Outfit (modern body) + Cormorant Garamond (elegant display) + Padauk (Burmese) -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom Styles (must be after Tailwind to override) -->
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Tailwind Config (inline, must be before body renders) -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'Padauk', 'Myanmar Text', sans-serif],
-                        display: ['Cormorant Garamond', 'serif'],
-                    },
-                    colors: {
-                        brand: 'var(--theme-accent)',
-                        background: 'var(--theme-bg)',
-                        foreground: 'var(--theme-text)',
-                        header: 'var(--theme-header)',
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Favicon (inline SVG data URI) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
@@ -49,12 +21,6 @@
 
     <!-- App Mount Point — everything renders here -->
     <div id="app"></div>
-
-    <!-- PapaParse (CSV parsing) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-
-    <!-- Lucide Icons (SVG icons) -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
     <!-- App Modules -->
     <script type="module" src="js/app.js" defer></script>
