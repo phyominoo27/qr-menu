@@ -8,16 +8,79 @@
 
     <title>QR Menu</title>
 
-    <!-- Self-hosted Fonts (Outfit + Cormorant Garamond + Padauk) -->
-    <link rel="stylesheet" href="fonts/fonts.css">
-
-    <!-- Preload critical fonts to avoid render-blocking -->
-    <link rel="preload" as="font" href="fonts/outfit-400.ttf" type="font/ttf" crossorigin>
-    <link rel="preload" as="font" href="fonts/cormorant-400.ttf" type="font/ttf" crossorigin>
-    <link rel="preload" as="font" href="fonts/padauk-400.ttf" type="font/ttf" crossorigin>
-
-    <!-- Preload critical JS (high priority to start parsing/app init sooner) -->
-    <link rel="preload" as="script" href="js/app.js" fetchpriority="high">
+    <!-- Font faces inlined — no extra CSS round-trip needed -->
+    <style>
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/outfit-400.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('fonts/outfit-500.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('fonts/outfit-600.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/outfit-700.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Cormorant Garamond';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/cormorant-400.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Cormorant Garamond';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('fonts/cormorant-500.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Cormorant Garamond';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('fonts/cormorant-600.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Cormorant Garamond';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/cormorant-700.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Padauk';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('fonts/padauk-400.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Padauk';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('fonts/padauk-700.ttf') format('truetype');
+        }
+    </style>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css">
